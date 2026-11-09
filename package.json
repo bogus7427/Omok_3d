@@ -1,0 +1,31 @@
+{
+  "name": "chess-3d",
+  "version": "1.0.0",
+  "description": "3D Chess",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.local.chess3d",
+    "productName": "3D Chess",
+    "files": [
+      "main.js",
+      "index.html",
+      "app.js",
+      "engine.js",
+      "vendor/**"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "portable"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0"
+  }
+}
