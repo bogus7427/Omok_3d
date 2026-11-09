@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3D Chess Arena</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#1c1c22" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <style>
       :root {
         --panel: rgba(18, 20, 28, 0.82);
@@ -286,5 +291,6 @@
     <script src="vendor/OrbitControls.js"></script>
     <script src="engine.js"></script>
     <script src="app.js"></script>
+    <script>if ("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("sw.js");</script>
   </body>
 </html>
