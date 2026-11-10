@@ -10,6 +10,7 @@ run("node build-single.js");
 fs.rmSync("www", { recursive: true, force: true });
 fs.mkdirSync("www");
 fs.copyFileSync("3D_Omok.html", "www/index.html");
+if (!fs.existsSync("android")) run("npx cap add android");
 run("npx cap sync android");
 const gradlew = path.resolve("android", process.platform === "win32" ? "gradlew.bat" : "gradlew");
 run(`"${gradlew}" assembleDebug`, path.resolve("android"));
