@@ -1,15 +1,16 @@
 {
-  "name": "chess-3d",
+  "name": "omok-3d",
   "version": "1.0.0",
-  "description": "3D Chess",
+  "description": "3D Omok",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --win portable"
+    "dist": "electron-builder --win portable",
+    "apk": "node build-apk.js"
   },
   "build": {
-    "appId": "com.local.chess3d",
-    "productName": "3D Chess",
+    "appId": "com.local.omok3d",
+    "productName": "3D Omok",
     "files": [
       "main.js",
       "index.html",
@@ -27,5 +28,10 @@
   "devDependencies": {
     "electron": "^45.2.3",
     "electron-builder": "^26.18.0"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/cli": "^8.6.0",
+    "@capacitor/core": "^8.6.0"
   }
 }

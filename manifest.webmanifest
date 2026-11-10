@@ -1,6 +1,6 @@
 {
-  "name": "3D Chess Arena",
-  "short_name": "3D Chess",
+  "name": "3D Omok Arena",
+  "short_name": "3D Omok",
   "start_url": "./index.html",
   "scope": "./",
   "display": "fullscreen",

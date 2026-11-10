@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3D Chess Arena</title>
+    <title>3D Omok Arena</title>
     <link rel="manifest" href="manifest.webmanifest" />
     <meta name="theme-color" content="#1c1c22" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -158,8 +158,8 @@
     <!-- 시작 메뉴 -->
     <div id="menu">
       <div class="menu-card">
-        <h1>♞ 3D CHESS ARENA</h1>
-        <div class="subtitle">국제 규칙 · 캐슬링 · 앙파상 · 프로모션 · 무승부 규칙 지원</div>
+        <h1>● 3D OMOK ARENA ○</h1>
+        <div class="subtitle">15×15 판 · 흑 선공 · 다섯 개를 먼저 이으면 승리</div>
 
         <div class="opt-row">
           <label class="title">게임 모드</label>
@@ -177,15 +177,15 @@
           </div>
         </div>
         <div class="opt-row" id="row-color">
-          <label class="title">내 말 색 선택</label>
+          <label class="title">내 돌 색 선택</label>
           <div class="seg" data-opt="color">
-            <button data-v="w" class="on">♔ 백 (선공)</button>
-            <button data-v="b">♚ 흑 (후공)</button>
+            <button data-v="b" class="on">● 흑 (선공)</button>
+            <button data-v="w">○ 백 (후공)</button>
             <button data-v="r">🎲 랜덤</button>
           </div>
         </div>
         <div class="opt-row">
-          <label class="title">말 / 보드 테마</label>
+          <label class="title">돌 / 판 테마</label>
           <div class="seg" data-opt="theme">
             <button data-v="classic" class="on">클래식 원목</button>
             <button data-v="royal">로열 골드</button>
@@ -194,30 +194,27 @@
           </div>
         </div>
         <div class="opt-row">
-          <label class="title">제한 시간 (1인당)</label>
-          <div class="seg" data-opt="time">
-            <button data-v="0">무제한</button>
-            <button data-v="1">1분</button>
-            <button data-v="3">3분</button>
-            <button data-v="5">5분</button>
-            <button data-v="10" class="on">10분</button>
-            <button data-v="30">30분</button>
+          <label class="title">승리 규칙</label>
+          <div class="seg" data-opt="rule">
+            <button data-v="free" class="on">5목 이상 (자유룰)</button>
+            <button data-v="exact">정확히 5목 (장목 무효)</button>
           </div>
         </div>
         <div class="opt-row">
-          <label class="title">수당 추가 시간 (피셔)</label>
-          <div class="seg" data-opt="inc">
-            <button data-v="0" class="on">+0초</button>
-            <button data-v="2">+2초</button>
-            <button data-v="5">+5초</button>
-            <button data-v="10">+10초</button>
+          <label class="title">한 수당 제한 시간</label>
+          <div class="seg" data-opt="time">
+            <button data-v="0" class="on">무제한</button>
+            <button data-v="10">10초</button>
+            <button data-v="20">20초</button>
+            <button data-v="30">30초</button>
+            <button data-v="60">60초</button>
           </div>
         </div>
         <div class="opt-row" id="row-rotate">
           <label class="title">2인 플레이 시 카메라 자동 회전</label>
           <div class="seg" data-opt="rotate">
-            <button data-v="1" class="on">켜기</button>
-            <button data-v="0">끄기</button>
+            <button data-v="1">켜기</button>
+            <button data-v="0" class="on">끄기</button>
           </div>
         </div>
         <button class="start-btn" id="start-btn">게임 시작</button>
@@ -230,17 +227,17 @@
       <div class="card player" id="card-top">
         <div class="p-head"><span class="p-dot"></span><span class="p-name"></span><span class="p-score"></span></div>
         <div class="clock">--:--</div>
-        <div class="caps-label">잡은 말</div>
+        <div class="caps-label">놓은 돌</div>
         <div class="caps"></div>
       </div>
       <div class="card status-mid">
-        <div id="status">백 차례</div>
+        <div id="status">흑 차례</div>
         <div id="thinking" class="hidden">🤔 컴퓨터가 생각 중...</div>
       </div>
       <div class="card player" id="card-bottom">
         <div class="p-head"><span class="p-dot"></span><span class="p-name"></span><span class="p-score"></span></div>
         <div class="clock">--:--</div>
-        <div class="caps-label">잡은 말</div>
+        <div class="caps-label">놓은 돌</div>
         <div class="caps"></div>
       </div>
     </div>
@@ -264,14 +261,6 @@
     </div>
 
     <div id="toast"></div>
-
-    <!-- 프로모션 선택 -->
-    <div class="modal hidden" id="promo-modal">
-      <div class="card">
-        <h3 style="margin: 0">폰 승진! 바꿀 말을 고르세요</h3>
-        <div class="promo-opts" id="promo-opts"></div>
-      </div>
-    </div>
 
     <!-- 게임 종료 -->
     <div class="modal hidden" id="over-modal">
